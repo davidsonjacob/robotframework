@@ -13,8 +13,8 @@ Preenche o campo email
     ${EMAILFAKE}                FakerLibrary.Email
     Type Text                   xpath=//input[@id='email_create']       ${EMAILFAKE}
 
-Preenche o campo email do esqueceu senha
-    [Documentation]             Preenche o campo email do esqueceu senha
+Preenche o campo email do Email address
+    [Documentation]             Preenche o campo email do Email address
     [Arguments]                 ${EMAIL}
     Type Text                   xpath=//input[@id='email']              ${EMAIL}
 
@@ -22,6 +22,11 @@ Preenche no login o campo email
     [Documentation]             Cria um email através da Library Faker
     ${EMAILFAKE}                FakerLibrary.Email
     Type Text                   //input[@id='email']                    ${EMAILFAKE}    
+
+Preenche o campo Password
+    [Documentation]             Preenche o campo email do ALREADY REGISTERED?
+    [Arguments]                 ${PASSWD}
+    Type Text                   xpath=//input[@id='passwd']     ${PASSWD}
 
 Preenche os campos de informação pessoal
     [Documentation]             Cria um usuário

@@ -11,7 +11,6 @@ Resource            ResourceAuthentication.robot
 ${BROWSER}           chromium
 
 
-
 *** Keywords ***
 Acessa página principal
     [Documentation]             Monta URL para acesso ao produto e abre o Browser
@@ -24,3 +23,12 @@ Volta para tela inicial
     [Documentation]             Volta para tela inicial
     Click                       xpath=//img[@alt='My Shop']
     Wait For Elements State     text="Custom Block"
+
+Desloga do sistema
+    [Documentation]             Desloga do sistema
+    Click                       xpath=//a[@title='Log me out']
+    Wait For Elements State     xpath=//span[normalize-space()='Sign in']
+
+Fecha navegador
+    [Documentation]             Fecha navegador
+    Close Browser

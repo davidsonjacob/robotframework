@@ -1,23 +1,13 @@
 *** Settings ***
-Documentation       Valida as Funcionalidades de NCM
+Documentation       Valida as funcionalidades de Usuário
 
 Resource            ../Resources/Resource.robot
 
-# Suite Setup         Run Keywords
-# ...                 Login pelo Auth com email ncmintel02@robot.qa  AND
-# ...                 Abre o Browser  AND
-# ...                 Seleciona idioma    PT  AND
-# ...                 Checks ENV to insert data into the database     NCM INTEL    is_front
-
-Test Setup          Acessa página principal
+Suite Setup         Acessa página principal
 
 Test Teardown       Volta para tela inicial
 
-# Suite Teardown      Run Keywords
-# ...                 Desloga do sistema  AND
-# ...                 Fechar navegador    AND
-# ...                 Comment Notification Slack      AND
-# ...                 Checks ENV to update database
+Suite Teardown      Fecha navegador
 
 
 *** Test Cases ***
@@ -30,6 +20,7 @@ CT01: Cria um novo usuário
     Preenche os campos de informação pessoal    José    Silva   teste@123        
     Clique em Register
     Valida mensagem Your account has been created.
+    Desloga do sistema
 
 CT02: Valida mensagem de email inválido
     [Documentation]     Valida mensagem de email inválido
@@ -66,7 +57,7 @@ CT06: Valida mensagem de email inexistente em esqueceu senha
     [Tags]              Usuario06
     Acessa tela Authentication
     Clique em Forgot your password
-    Preenche o campo email do esqueceu senha    teste111@teste111.com
+    Preenche o campo email do Email address       teste111@teste111.com
     Clique em Retrieve Password
     Valida mensagem There is no account registered for this email address.
 
@@ -75,6 +66,6 @@ CT07: Valida mensagem de email existente em esqueceu senha
     [Tags]              Usuario07
     Acessa tela Authentication
     Clique em Forgot your password
-    Preenche o campo email do esqueceu senha    teste@teste.com
+    Preenche o campo email do Email address    teste@teste.com
     Clique em Retrieve Password
     Valida mensagem A confirmation email has been sent to your address: teste@teste.com
