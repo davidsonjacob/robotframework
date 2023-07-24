@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       Valida as funcionalizades compra
+Documentation       Valida as funcionalizades produto
 
 Resource            ../Resources/Resource.robot
 
@@ -11,12 +11,12 @@ Suite Teardown      Fecha navegador
 
 
 *** Test Cases ***
-CT01: Realiza uma compra
-    [Documentation]     Realiza uma compra
-    [Tags]              Compra01
+CT01: Pesquisa por um produto
+    [Documentation]     Realiza pesquisa de um produto
+    [Tags]              Produto01
     Acessa tela Authentication
     Preenche o campo email do Email address     robot@teste.com
     Preenche o campo Password   P8g@$kog
     Clique em Sign in
     Valida mensagem Welcome to your account. Here you can manage all of your personal information and orders.
-
+    Pesquisa produto    dress

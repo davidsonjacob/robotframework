@@ -6,6 +6,7 @@ Library             Browser
 Library             FakerLibrary
 
 Resource            ResourceAuthentication.robot
+Resource            ResourceProduto.robot
 
 *** Variables ***
 ${BROWSER}           chromium
